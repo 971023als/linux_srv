@@ -1,0 +1,43 @@
+#!/bin/bash
+
+. function.sh
+
+TMP1=$(SCRIPTNAME).log
+> $TMP1
+
+BAR
+
+echo "[SRV-035] 취약한 서비스 비활성화 조치" >> $TMP1
+
+# 취약한 서비스 목록
+services=("echo" "discard" "daytime" "chargen")
+
+# /etc/xinetd.d 디렉터리 내의 서비스 비활성화
+if [ -d /etc/xinetd.d ]; then
+    for service in "${services[@]}"; do
+        if [ -f /etc/xinetd.d/$service ]; then
+            # 해당 서비스가 비활성화되어 있지 않은 경우, 비활성화합니다.
+            sed -i 's/disable[ \t]*=[ \t]*no/disable = yes/' /etc/xinetd.d/$service
+            echo "조치: $service 서비스가 /etc/xinetd.d 내에서 비활성화되었습니다." >> $TMP1
+        fi
+    done
+fi
+
+# /etc/inetd.conf 파일 내의 서비스 비활성화
+if [ -f /etc/inetd.conf ]; then
+    for service in "${services[@]}"; do
+        # 해당 서비스가 파일에 존재하는 경우, 주석 처리하여 비활성화합니다.
+        if grep -q "$service" /etc/inetd.conf; then
+            sed -i "/$service/s/^/#/" /etc/inetd.conf
+            echo "조치: $service 서비스가 /etc/inetd.conf 파일 내에서 비활성화되었습니다." >> $TMP1
+        fi
+    done
+fi
+
+echo "모든 취약한 서비스에 대한 비활성화 조치가 완료되었습니다." >> $TMP1
+
+BAR
+
+cat "$TMP1"
+
+echo ; echo
