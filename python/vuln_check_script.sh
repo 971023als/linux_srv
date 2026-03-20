@@ -28,8 +28,8 @@ echo ""  >> $TMP1
 echo "================================ 진단 결과 요약 ================================" >> $TMP1
 echo ""  >> $TMP1
 echo "                              ★ 항목 개수 = `cat $TMP1 | grep '결과 : ' | wc -l`" >> $TMP1
-echo "                              ☆ 취약 개수 = `cat $TMP1 | grep '결과 : OK' | wc -l`" >> $TMP1
-echo "                              ★ 양호 개수 = `cat $TMP1 | grep '결과 : WARN' | wc -l`" >> $TMP1
+echo "                              ☆ 양호 개수 = `cat $TMP1 | grep '결과 : OK' | wc -l`" >> $TMP1
+echo "                              ★ 취약 개수 = `cat $TMP1 | grep '결과 : WARN' | wc -l`" >> $TMP1
 echo "                              ☆ N/A 개수 = `cat $TMP1 | grep '결과 : N/A' | wc -l`" >> $TMP1
 echo ""  >> $TMP1
 echo "==============================================================================" >> $TMP1

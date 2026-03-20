@@ -15,7 +15,7 @@ EOF
 
 BAR
 
-"[SRV-007] 취약한 버전의 SMTP 서비스 사용" >> $TMP1
+echo "[SRV-007] 취약한 버전의 SMTP 서비스 사용" >> $TMP1
 
 # Check and upgrade Sendmail version
 SENDMAIL_VERSION=$(/usr/lib/sendmail -d0.1 -bt < /dev/null 2>&1 | grep Version | awk '{print $2}')

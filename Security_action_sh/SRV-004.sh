@@ -16,7 +16,7 @@ EOF
 
 BAR
 
-"[SRV-004] 불필요한 SMTP 서비스 실행" >> $TMP1
+echo "[SRV-004] 불필요한 SMTP 서비스 실행" >> $TMP1
 
 # SMTP 서비스 (예: postfix)가 실행 중인지 확인합니다.
 SMTP_SERVICE="postfix"
