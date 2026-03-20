@@ -19,7 +19,7 @@ EOF
 
 BAR
 
-"[SRV-002] SNMP 서비스 Set Community 스트링 설정 오류" >> $TMP1
+echo "[SRV-002] SNMP 서비스 Set Community 스트링 설정 오류" >> $TMP1
 
 # SNMP service running check
 ps_snmp_count=$(ps -ef | grep -i 'snmp' | grep -v 'grep' | wc -l)

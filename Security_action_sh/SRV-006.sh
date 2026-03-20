@@ -16,7 +16,7 @@ EOF
 
 BAR
 
-"[SRV-006] SMTP 서비스 로그 수준 설정 미흡" >> $TMP1
+echo "[SRV-006] SMTP 서비스 로그 수준 설정 미흡" >> $TMP1
 
 SENDMAIL_CONFIG="/etc/mail/sendmail.cf"
 LOG_LEVEL_SETTING="O LogLevel"

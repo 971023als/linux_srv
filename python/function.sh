@@ -122,6 +122,7 @@ else
 	done
 fi
 echo $ReturnValue
+}
 
 CheckEncryptedPasswd() {
 SFILE=$1
@@ -156,5 +157,4 @@ elif [ $1 = 'VALUE' ] ; then
 	echo "$SEARCH" | awk '{print $2}'
 	fi
 fi
-}
 }

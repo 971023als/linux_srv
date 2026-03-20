@@ -16,7 +16,7 @@ EOF
 
 BAR
 
-"[SRV-005] SMTP 서비스의 expn/vrfy 명령어 실행 제한 미비" >> $TMP1
+echo "[SRV-005] SMTP 서비스의 expn/vrfy 명령어 실행 제한 미비" >> $TMP1
 
 SMTP_SERVICES=("sendmail" "postfix")
 POSTFIX_CONFIG="/etc/postfix/main.cf"

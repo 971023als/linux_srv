@@ -23,8 +23,6 @@ if [ $DAY -ge 2 -a $DAY -le 8 ] ; then
 		backup >> $LOG 2>&1
 fi
 
-backup >> $LOG 2>&1
-
 #[ $DAY -ge 2 -a $DAY -le 8 ] && backup >> $LOG 2>&1
 
 

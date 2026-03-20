@@ -16,7 +16,7 @@ EOF
 
 BAR
 
-"[SRV-008] SMTP 서비스의 DoS 방지 기능 미설정" >> $TMP1
+echo "[SRV-008] SMTP 서비스의 DoS 방지 기능 미설정" >> $TMP1
 
 # Sendmail 설정 점검 및 수정
 SENDMAIL_CF="/etc/mail/sendmail.cf"

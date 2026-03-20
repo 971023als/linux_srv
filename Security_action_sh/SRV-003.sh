@@ -18,7 +18,7 @@ EOF
 
 BAR
 
-"[SRV-003] SNMP 접근 통제 미설정" >> $TMP1
+echo "[SRV-003] SNMP 접근 통제 미설정" >> $TMP1
 
 SNMPD_CONF="/etc/snmp/snmpd.conf"
 ACCESS_CONTROL_STRING="com2sec notConfigUser default public"
