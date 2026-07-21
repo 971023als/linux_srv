@@ -48,23 +48,10 @@ diagnosisItem="로컬 로그온 허용"
 diagnosisResult=""
 status=""
 
-# Check local logon policy status using PowerShell
-policyStatus=$(powershell -Command "
-    secedit /export /cfg tempsec.cfg | Out-Null
-    $policyStatus = Select-String -Path tempsec.cfg -Pattern 'SeDenyInteractiveLogonRight'
-    Remove-Item tempsec.cfg
-    if (\$policyStatus) { 'OK: 로컬 로그온이 비활성화되어 있습니다.' } else { 'WARN: 로컬 로그온이 활성화되어 있습니다.' }
-")
-
-if [[ $policyStatus == *"OK"* ]]; then
-    diagnosisResult="로컬 로그온이 비활성화되어 있습니다."
-    status="양호"
-    log_result "OK" "로컬 로그온이 비활성화되어 있습니다."
-else
-    diagnosisResult="로컬 로그온이 활성화되어 있습니다."
-    status="취약"
-    log_result "WARN" "로컬 로그온이 활성화되어 있습니다."
-fi
+# SRV-150: 로컬 로그온 허용 - Windows 전용 항목, Linux 환경에서는 N/A
+diagnosisResult="Linux 환경에서 해당 없음 (N/A)"
+status="N/A"
+log_result "N/A" "로컬 로그온 정책은 Linux 환경에서 적용되지 않습니다."
 
 # Append result to CSV
 append_to_csv "$category" "$code" "$riskLevel" "$diagnosisItem" "$diagnosisResult" "$status"

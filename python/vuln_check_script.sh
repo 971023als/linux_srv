@@ -12,16 +12,11 @@ TMP1=$(basename "$0").log
 
 # 001부터 174까지 순회하면서 파일명 생성 및 실행
 for i in $(seq -w 1 174); do
-  filename="SRV-$i.sh"
-  echo "Executing $filename" >> "$TMP1"  # 실행 메시지를 로그 파일에 추가
-  
-  # 파일에 실행 권한이 있는지 확인하고, 없으면 추가
-  if [ ! -x "$filename" ]; then
-    chmod +x "$filename"
+  filename="SRV-$i.py"
+  if [ -f "$filename" ]; then
+    echo "Executing $filename" >> "$TMP1"
+    python3 "$filename"
   fi
-
-  # 파일 실행
-  ./"$filename"
 done
 
 echo ""  >> $TMP1
