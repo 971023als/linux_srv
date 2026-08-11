@@ -8,14 +8,14 @@ import subprocess
 
 
 # JSON 데이터 구성
-$jsonData = @{
-    분류 = "시스템 보안"
-    코드 = "SRV-028"
-    위험도 = "중간"
-    진단항목 = "SSH 원격 터미널 접속 타임아웃 설정"
-    진단결과 = "(변수: 양호, 취약)"
-    현황 = (Get-SSHTimeoutStatus)
-    대응방안 = "SSH 원격 터미널 접속 타임아웃을 적절하게 설정하십시오."
+jsonData = {
+    "분류": "시스템 보안",
+    "코드": "SRV-028",
+    "위험도": "중간",
+    "진단항목": "SSH 원격 터미널 접속 타임아웃 설정",
+    "진단결과": "(변수: 양호, 취약)",
+    "현황": "Placeholder for Get-SSHTimeoutStatus function",
+    "대응방안": "SSH 원격 터미널 접속 타임아웃을 적절하게 설정하십시오."
 }
 
 def BAR():

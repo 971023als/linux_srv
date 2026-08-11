@@ -7,14 +7,14 @@ import pwd
 import subprocess
 
 # JSON 데이터 구성
-$jsonData = @{
-    분류 = "시스템 보안"
-    코드 = "SRV-026"
-    위험도 = "중간"
-    진단항목 = "SSH 서비스의 root 계정 원격 접속 제한"
-    진단결과 = "(변수: 양호, 취약)"
-    현황 = (Get-SSHRootLoginStatus)
-    대응방안 = "SSH를 통한 Administrator 계정의 원격 접속을 'no'로 제한하십시오."
+jsonData = {
+    "분류": "시스템 보안",
+    "코드": "SRV-026",
+    "위험도": "중간",
+    "진단항목": "SSH 서비스의 root 계정 원격 접속 제한",
+    "진단결과": "(변수: 양호, 취약)",
+    "현황": "Placeholder for Get-SSHRootLoginStatus function",
+    "대응방안": "SSH를 통한 Administrator 계정의 원격 접속을 'no'로 제한하십시오."
 }
 
 

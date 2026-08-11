@@ -7,14 +7,14 @@ import pwd
 import subprocess
 
 # JSON 데이터 구성
-$jsonData = @{
-    분류 = "시스템 보안"
-    코드 = "SRV-029"
-    위험도 = "중간"
-    진단항목 = "SMB 서비스 세션 중단 시간 설정"
-    진단결과 = "(변수: 양호, 취약)"
-    현황 = (Get-SMBSessionTimeoutStatus)
-    대응방안 = "SMB 서비스의 세션 중단 시간을 적절하게 설정하십시오."
+jsonData = {
+    "분류": "시스템 보안",
+    "코드": "SRV-029",
+    "위험도": "중간",
+    "진단항목": "SMB 서비스 세션 중단 시간 설정",
+    "진단결과": "(변수: 양호, 취약)",
+    "현황": "Placeholder for Get-SMBSessionTimeoutStatus function",
+    "대응방안": "SMB 서비스의 세션 중단 시간을 적절하게 설정하십시오."
 }
 
 def BAR():
