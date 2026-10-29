@@ -1,6 +1,5 @@
 import os
 import subprocess
-from packaging import version
 
 # Python dictionary for JSON data
 jsonData = {
@@ -34,8 +33,20 @@ append_to_log("[양호]: SMTP 서비스 버전이 최신 버전일 경우 또는
 bar()
 append_to_log("[SRV-007] 취약한 버전의 SMTP 서비스 사용")
 
+def version_tuple(v):
+    parts = []
+    for part in v.split('.'):
+        digits = ''
+        for ch in part:
+            if ch.isdigit():
+                digits += ch
+            else:
+                break
+        parts.append(int(digits) if digits else 0)
+    return tuple(parts)
+
 def version_gt(a, b):
-    return version.parse(a) > version.parse(b)
+    return version_tuple(a) > version_tuple(b)
 
 # Check Sendmail version
 try:
