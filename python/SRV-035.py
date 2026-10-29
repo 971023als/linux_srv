@@ -7,13 +7,13 @@ import pwd
 import subprocess
 
 # JSON 데이터 구성
-$jsonData = @{
-    분류 = "시스템 보안"
-    코드 = "SRV-035"
-    위험도 = "중간"
-    진단항목 = "취약한 서비스 활성화 상태"
-    진단결과 = Check-VulnerableServices
-    대응방안 = "취약한 서비스는 비활성화하십시오."
+jsonData = {
+    "분류": "시스템 보안",
+    "코드": "SRV-035",
+    "위험도": "중간",
+    "진단항목": "취약한 서비스 활성화 상태",
+    "진단결과": "Placeholder for Check-VulnerableServices function",
+    "대응방안": "취약한 서비스는 비활성화하십시오."
 }
 
 def BAR():

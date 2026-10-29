@@ -7,14 +7,14 @@ import pwd
 import subprocess
 
 # JSON 데이터 구성
-$jsonData = @{
-    분류 = "시스템 보안"
-    코드 = "SRV-031"
-    위험도 = "중간"
-    진단항목 = "SMB 서비스 계정 목록 및 네트워크 공유 이름 노출"
-    진단결과 = "(변수: 양호, 취약)"
-    현황 = (Get-SMBExposureStatus)
-    대응방안 = "SMB 서비스의 네트워크 공유 열거를 제한하도록 설정하십시오."
+jsonData = {
+    "분류": "시스템 보안",
+    "코드": "SRV-031",
+    "위험도": "중간",
+    "진단항목": "SMB 서비스 계정 목록 및 네트워크 공유 이름 노출",
+    "진단결과": "(변수: 양호, 취약)",
+    "현황": "Placeholder for Get-SMBExposureStatus function",
+    "대응방안": "SMB 서비스의 네트워크 공유 열거를 제한하도록 설정하십시오."
 }
 
 def BAR():
