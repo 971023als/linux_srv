@@ -49,7 +49,7 @@ def check_access_control():
         return WARN("/etc/hosts.deny 파일이 없습니다.")
 
 # 결과 파일 초기화
-tmp1 = "SCRIPTNAME.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
+tmp1 = "SRV-027.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
 with open(tmp1, 'w') as f:
     pass
 

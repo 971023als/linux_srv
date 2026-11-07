@@ -1,7 +1,7 @@
 import subprocess
 
 # 결과 파일 초기화
-script_name = "SCRIPTNAME.log"  # 실제 스크립트 이름으로 변경해야 합니다.
+script_name = "SRV-129.log"  # 실제 스크립트 이름으로 변경해야 합니다.
 
 def write_result(message):
     with open(script_name, 'a') as f:
