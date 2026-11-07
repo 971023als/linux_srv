@@ -1,7 +1,7 @@
 import os
 
 # 파일 이름 설정 및 초기화
-script_name = "SCRIPTNAME"  # 실제 스크립트 이름으로 변경해야 합니다.
+script_name = "SRV-092"  # 실제 스크립트 이름으로 변경해야 합니다.
 tmp1 = f"{script_name}.log"
 
 # 로그 파일 초기화
