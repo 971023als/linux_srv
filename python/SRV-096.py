@@ -3,7 +3,7 @@ import pwd
 import subprocess
 
 # 결과 파일 초기화 및 기본 정보 추가
-script_name = "SCRIPTNAME"  # 실제 스크립트 이름으로 변경해야 합니다.
+script_name = "SRV-096"  # 실제 스크립트 이름으로 변경해야 합니다.
 tmp1 = f"{script_name}.log"
 with open(tmp1, 'w') as f:
     f.write("CODE [SRV-096] 사용자 환경파일의 소유자 또는 권한 설정 미흡\n\n")
