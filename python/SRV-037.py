@@ -15,7 +15,7 @@ def log_message(message, file_path, mode='a'):
         f.write(message + "\n")
 
 # 결과 파일 초기화
-tmp1 = "SCRIPTNAME.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
+tmp1 = "SRV-037.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
 log_message("", tmp1, 'w')  # 로그 파일을 초기화합니다.
 
 BAR()
