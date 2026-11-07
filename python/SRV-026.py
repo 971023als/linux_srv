@@ -43,7 +43,7 @@ def check_ssh_root_login():
     return WARN("ssh 서비스를 사용하고, sshd_config 파일이 없거나 root 계정의 원격 접속 제한 설정을 찾을 수 없습니다.")
 
 # 결과 파일 초기화
-tmp1 = "SCRIPTNAME.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
+tmp1 = "SRV-026.log"  # 'SCRIPTNAME'을 실제 스크립트 이름으로 바꿔주세요.
 with open(tmp1, 'w') as f:
     pass
 
