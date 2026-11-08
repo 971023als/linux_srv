@@ -1,0 +1,10 @@
+[package]
+name = "srv-090"
+version = "0.1.0"
+edition = "2021"
+
+# 외부 크레이트 의존성 없음 (표준 라이브러리만 사용)
+
+[[bin]]
+name = "SRV-090"
+path = "src/main.rs"
