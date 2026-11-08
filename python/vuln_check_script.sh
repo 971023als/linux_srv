@@ -65,7 +65,7 @@ for i in $(seq -w 1 174); do
   out=$("$interpreter" "$target" 2>&1)
   rc=$?
   printf '%s\n' "$out" >> "$TMP1"
-  printf '%s\n' "$out" >> "$VERDICTS"
+  printf '%s\n' "$out" | sed "s/^/[SRV-$i] /" >> "$VERDICTS"
   if [ $rc -ne 0 ]; then
     failed=$((failed + 1))
     failed_list="$failed_list SRV-$i"
@@ -85,21 +85,23 @@ for i in $(seq -w 1 174); do
       cur_size=$(stat -c%s "$cand")
       if [ "$cur_size" -gt "$snap_size" ] && head -c "$snap_size" "$cand" 2>/dev/null | cmp -s - "$SNAP_DIR/$cand"; then
         # 기존 내용 뒤에 추가 기록된 경우: 새로 추가된 부분만 추출
-        tail -c "+$((snap_size + 1))" "$cand" >> "$VERDICTS"
+        tail -c "+$((snap_size + 1))" "$cand" | sed "s/^/[SRV-$i] /" >> "$VERDICTS"
       else
         # 파일을 새로 쓴 경우(덮어쓰기): 현재 내용 전체가 이번 실행 결과
-        cat "$cand" >> "$VERDICTS"
+        cat "$cand" | sed "s/^/[SRV-$i] /" >> "$VERDICTS"
       fi
     else
       # 이번 실행에 새로 만들어진 로그는 전체 포함
-      cat "$cand" >> "$VERDICTS"
+      cat "$cand" | sed "s/^/[SRV-$i] /" >> "$VERDICTS"
     fi
   done
 done
 rm -rf "$SNAP_DIR" "$MARKER"
 
 # 판정 집계: stdout과 개별 로그를 모두 쓰는 스크립트가 있어
-# 동일한 줄은 한 번만 센다
+# 같은 항목 안의 중복 줄만 한 번으로 센다.
+# (줄 앞의 [SRV-xxx] 태그로 항목을 구분하므로, 서로 다른 항목이
+#  동일한 판정 문구를 출력해도 각각 집계된다)
 good_count=$(grep -E 'OK:|결과 : 양호' "$VERDICTS" | awk '!seen[$0]++' | wc -l)
 bad_count=$(grep -E 'WARN:|결과 : 취약' "$VERDICTS" | awk '!seen[$0]++' | wc -l)
 na_count=$(grep -F 'N/A' "$VERDICTS" | awk '!seen[$0]++' | wc -l)
